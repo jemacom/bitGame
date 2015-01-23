@@ -11,7 +11,7 @@ int main(void){
     
    for (int i = 0 ; i<8 ; i++){
         pinMode( i , OUTPUT);
-        digitalWrite( i , HIGH);
+        digitalWrite( i , LOW);
    }
 
 
@@ -27,17 +27,27 @@ int main(void){
         int num;
 
 	switch(strlen(ch)){
-	case 1 :
-		num = ch[0] - '0';
+	case 1 : 
+                if ( ch[0] < '0' || ch[0] > '9' ) continue;
+		
+                num = ch[0] - '0';
 		break;
 	case 2 :
-		num = ch[1] - '0' + (ch[0] - '0')*10;
+                if ( ch[0] < '0' || ch[0] > '9' ) continue;
+                if ( ch[1] < '0' || ch[1] > '9' ) continue;
+
+                num = ch[1] - '0' + (ch[0] - '0')*10;
 		break;
 	case 3 :
-		num = ch[2] - '0' + (ch[1] - '0') * 10 + (ch[0] - '0') * 100;
+
+                if ( ch[0] < '0' || ch[0] > '9' ) continue;
+                if ( ch[1] < '0' || ch[1] > '9' ) continue;
+                if ( ch[2] < '0' || ch[2] > '9' ) continue;
+		
+                num = ch[2] - '0' + (ch[1] - '0') * 10 + (ch[0] - '0') * 100;
 		break;
 	default:
-		break;
+		continue;
 	}
 
 
