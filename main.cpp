@@ -205,12 +205,6 @@ int main ( int argc, char** argv )
                     SDL_BlitSurface(text, 0, screen, &center);
                     SDL_Flip(screen);
 
-                    // Reset number
-                    number = 0;
-                    sprintf(numberString, "");
-
-
-
                     // Executer le code des GPIOs de la raspberry pi
 
                     //execute :)
@@ -222,7 +216,11 @@ int main ( int argc, char** argv )
 			   digitalWrite( 5 , number & 0x20);
 			   digitalWrite( 6 , number & 0x40);
    			   digitalWrite( 7 , number & 0x80);
+		
 
+		// Reset number
+                    number = 0;
+                    sprintf(numberString, "");
                     break;
                 }
 
